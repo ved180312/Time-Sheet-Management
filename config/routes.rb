@@ -12,4 +12,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+
+  namespace :users do
+    resources :roles do
+      collection do
+        get :team_leads # Example custom action to get team_leads roles
+      end
+    end
+  end
 end
